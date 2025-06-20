@@ -110,7 +110,7 @@ script:
     - write_file:
         description: Creating modlist.txt for gMod
         file: $GAMEDIR/drive_c/gMod/modlist.txt
-        content: 'C:\gMod\Borderless Cartography_Made_Easy_2015_1.3.tpf'
+        content: 'C:\gMod\Borderless_Cartography_Made_Easy_2015_1.3.tpf'
         # We don't enable Minimalus UI by default because it can be intrusive 
         # and some users may prefer to use the original UI
 
