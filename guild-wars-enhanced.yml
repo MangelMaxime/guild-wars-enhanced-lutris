@@ -1,0 +1,134 @@
+name: Guild Wars - Enhanced
+game_slug: guild-wars-enhanced
+version: Official Client
+slug: guild-wars-enhanced
+runner: wine
+
+script:
+  game:
+    exe: $GAMEDIR/drive_c/Injectory/injectory.x86.exe
+    args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:/gMod/gMod.dll" -i "C:\Users\mmangel\Documents\GWToolboxpp\GWToolboxdll.dll"
+    name: Guild Wars (Full Enhanced)
+    prefix: $GAMEDIR
+    launch_configs:
+      - exe: $GAMEDIR/drive_c/Program Files (x86)/Guild Wars/Gw.exe
+        name: Guild Wars (Pure)
+        prefix: $GAMEDIR
+      - exe: $GAMEDIR/drive_c/Injectory/injectory.x86.exe
+        name: Guild Wars (gMod only)
+        args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:/gMod/gMod.dll"
+        prefix: $GAMEDIR
+      - exe: $GAMEDIR/drive_c/Injectory/injectory.x86.exe
+        name: Guild Wars (GWToolbox only)
+        args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:\Users\mmangel\Documents\GWToolboxpp\GWToolboxdll.dll"
+        prefix: $GAMEDIR
+      - exe: $GAMEDIR/drive_c/GWToolbox/GWToolbox.exe
+        name : Update GWToolbox
+        args: /reinstall
+      - exe: $GAMEDIR/drive_c/Program Files (x86)/Guild Wars/Gw.exe
+        args: -image
+        name: Guild Wars - Download all updates (-image)
+        prefix: $GAMEDIR
+  files:
+    - client: http://cloudfront.guildwars2.com/client/GwSetup.exe
+    - gwtoolbox: https://github.com/gwdevhub/GWToolboxpp/releases/download/7.8_Exe/GWToolbox.exe
+    - injectory: https://github.com/blole/injectory/releases/download/6.1.0/injectory.x86.exe
+    - gmod: https://github.com/gwdevhub/gMod/releases/download/v1.7.0.2/gMod.dll
+    # Original file from https://www.guildwarslegacy.com/ChatFilter.ini takes 5-10sec to download 
+    # so we use a mirror instead
+    - chatfilter: https://raw.githubusercontent.com/kevinpetit/legacy-chatfilter/master/ChatFilter.ini
+    - cartography-made-easy: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Borderless_Cartography_Made_Easy_2015_1.3.tpf'
+    - minimalus-ui: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Minimalus_UI_v2.1.tpf'
+    - coverart: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/coverart.jpg'
+    - banner: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/banner.jpg'
+  installer:
+
+    ################
+    #  Guild Wars  #
+    ################
+    - task:
+        description: Installing Guild Wars
+        arch: win64
+        executable: client
+        name: wineexec
+        prefix: $GAMEDIR
+        # Don't monitor Gw.exe process during installation
+        # This is so the rest of the installation is transparent to the user
+        # otherwise, it will continue after the user closes Guild Wars
+        exclude_processes: Gw.exe
+    - task:
+        description: Killing Gw.exe
+        name: winekill
+
+    ###############
+    #  GWToolbox  #
+    ###############
+    - execute:
+        description: Creating GWToolbox directory
+        command: mkdir -p $GAMEDIR/drive_c/GWToolbox/
+    - move:
+        description: Copying GWToolbox executable
+        src: gwtoolbox
+        dst: $GAMEDIR/drive_c/GWToolbox/
+    - task:
+        description: Setting up GWToolbox
+        arch: win64
+        executable: $GAMEDIR/drive_c/GWToolbox/GWToolbox.exe
+        args: /install
+        name: wineexec
+        prefix: $GAMEDIR
+
+    ###############
+    #  Injectory  #
+    ###############
+    - execute:
+        description: Creating Injectory directory
+        command: mkdir -p $GAMEDIR/drive_c/Injectory/
+    - move:
+        description: Copying Injectory executable
+        src: injectory
+        dst: $GAMEDIR/drive_c/Injectory/
+    - execute:
+        description: Creating gMod directory
+        command: mkdir -p $GAMEDIR/drive_c/gMod/
+    
+    ##############
+    #  gMod      #
+    ##############
+    - move:
+        description: Copying gMod executable
+        src: gmod
+        dst: $GAMEDIR/drive_c/gMod/
+    - move:
+        description: Copying Cartography Made Easy
+        src: cartography-made-easy
+        dst: $GAMEDIR/drive_c/gMod/
+    - move:
+        description: Copying Minimalus UI
+        src: minimalus-ui
+        dst: $GAMEDIR/drive_c/gMod/
+    - write_file:
+        description: Creating modlist.txt for gMod
+        file: $GAMEDIR/drive_c/gMod/modlist.txt
+        content: 'C:\gMod\Borderless Cartography_Made_Easy_2015_1.3.tpf'
+        # We don't enable Minimalus UI by default because it can be intrusive 
+        # and some users may prefer to use the original UI
+
+    ###############
+    #  Chatfilter #
+    ###############
+    - move:
+        description: Creating chatfilter.ini
+        src: chatfilter
+        dst: $GAMEDIR/drive_c/Program Files (x86)/Guild Wars/
+
+    ############################
+    # Copy pictures for Lutris #
+    ############################
+    # Because the Script is not hosted on the Lutris website, we need to copy the cover art and banner manually
+    - execute:
+        description: Copying cover art
+        command: cp $CACHE/coverart/coverart.jpg $HOME/.local/share/lutris/coverart/guild-wars-enhanced.jpg
+    - execute:
+        description: Copying banner
+        command: cp $CACHE/banner/banner.jpg $HOME/.local/share/lutris/banners/guild-wars-enhanced.jpg
