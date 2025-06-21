@@ -11,10 +11,9 @@ This project provides a Lutris installer script for the game "Guild Wars". It is
 - [ChatFilter](https://guildwarslegacy.com/forum/thread/2956-chat-filter-filter-out-gold-spammers/) - filter out gold spammers
 - [Multiple launchers available](#launchers) - choose your preferred launcher when starting the game
 
-<center>
-
-![Pictures showcasing the multiple launchers options](./pictures/showcase-multiple-launchers.png)
-</center>
+<p align="center">
+  <img src="./pictures/showcase-multiple-launchers.png" alt="Picture showcasing the multiple launchers options"/>
+</p>
 
 ## Usage
 
