@@ -35,7 +35,7 @@ This project provides a Lutris installer script for the game "Guild Wars". It is
 First ensure that [Lutris](https://lutris.net/) and `curl` are installed on your system. Then execute:
 
 ```bash
-curl -fsSL https://mangelmaxime.github.io/guild-wars-enhanced-lutris/scripts/install.yml | bash
+curl -fsSL https://mangelmaxime.github.io/guild-wars-enhanced-lutris/scripts/install.sh | bash
 ```
 
 ## Launchers
