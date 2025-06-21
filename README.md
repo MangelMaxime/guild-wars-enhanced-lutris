@@ -9,7 +9,12 @@ This project provides a Lutris installer script for the game "Guild Wars". It is
     - [Minimalus_UI_v2.1.tpf](https://wiki.guildwars.com/wiki/User:Jujin/Minimalus_UI_Mod) is installed but not loaded by default (learn more below)
 - [GWToolbox](https://www.gwtoolbox.com/) - a collection of several tools and enhancements for the original Guild Wars
 - [ChatFilter](https://guildwarslegacy.com/forum/thread/2956-chat-filter-filter-out-gold-spammers/) - filter out gold spammers
-- Multiple launchers available
+- [Multiple launchers available](#launchers) - choose your preferred launcher when starting the game
+
+<center>
+
+![Pictures showcasing the multiple launchers options](./pictures/showcase-multiple-launchers.png)
+</center>
 
 ## Usage
 
