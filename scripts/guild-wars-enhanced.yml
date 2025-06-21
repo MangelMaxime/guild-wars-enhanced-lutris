@@ -34,7 +34,7 @@ script:
     - gwtoolbox: https://github.com/gwdevhub/GWToolboxpp/releases/download/7.8_Exe/GWToolbox.exe
     - injectory: https://github.com/blole/injectory/releases/download/6.1.0/injectory.x86.exe
     - gmod: https://github.com/gwdevhub/gMod/releases/download/v1.7.0.2/gMod.dll
-    # Original file from https://www.guildwarslegacy.com/ChatFilter.ini takes 5-10sec to download 
+    # Original file from https://www.guildwarslegacy.com/ChatFilter.ini takes 5-10sec to download
     # so we use a mirror instead
     - chatfilter: https://raw.githubusercontent.com/kevinpetit/legacy-chatfilter/master/ChatFilter.ini
     - cartography-made-easy: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Borderless_Cartography_Made_Easy_2015_1.3.tpf'
@@ -91,7 +91,7 @@ script:
     - execute:
         description: Creating gMod directory
         command: mkdir -p $GAMEDIR/drive_c/gMod/
-    
+
     ##############
     #  gMod      #
     ##############
@@ -111,7 +111,7 @@ script:
         description: Creating modlist.txt for gMod
         file: $GAMEDIR/drive_c/gMod/modlist.txt
         content: 'C:\gMod\Borderless_Cartography_Made_Easy_2015_1.3.tpf'
-        # We don't enable Minimalus UI by default because it can be intrusive 
+        # We don't enable Minimalus UI by default because it can be intrusive
         # and some users may prefer to use the original UI
 
     ###############
