@@ -76,3 +76,7 @@ If you want to load the `Minimalus_UI_v2.1.tpf`, you can do so by following thes
 
 > [!NOTE]
 > You can load more mods by adding their `.tpf` files to the `gMod` directory and updating the `modlist.txt` file accordingly.
+
+## Credits
+
+This project has been made possible thanks to the documentation works done at [ChthonVII/guildwarslinuxinstallguide](https://github.com/ChthonVII/guildwarslinuxinstallguide).
