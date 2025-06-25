@@ -23,7 +23,7 @@ script:
         args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:\Users\mmangel\Documents\GWToolboxpp\GWToolboxdll.dll"
         prefix: $GAMEDIR
       - exe: $GAMEDIR/drive_c/GWToolbox/GWToolbox.exe
-        name : Update GWToolbox
+        name: Update GWToolbox
         args: /reinstall
       - exe: $GAMEDIR/drive_c/Program Files (x86)/Guild Wars/Gw.exe
         args: -image
@@ -37,12 +37,11 @@ script:
     # Original file from https://www.guildwarslegacy.com/ChatFilter.ini takes 5-10sec to download
     # so we use a mirror instead
     - chatfilter: https://raw.githubusercontent.com/kevinpetit/legacy-chatfilter/master/ChatFilter.ini
-    - cartography-made-easy: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Borderless_Cartography_Made_Easy_2015_1.3.tpf'
-    - minimalus-ui: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Minimalus_UI_v2.1.tpf'
-    - coverart: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/coverart.jpg'
-    - banner: 'https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/banner.jpg'
+    - cartography-made-easy: "https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Borderless_Cartography_Made_Easy_2015_1.3.tpf"
+    - minimalus-ui: "https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/Minimalus_UI_v2.1.tpf"
+    - coverart: "https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/coverart.jpg"
+    - banner: "https://raw.githubusercontent.com/MangelMaxime/guild-wars-enhanced-lutris/main/extras/banner.jpg"
   installer:
-
     ################
     #  Guild Wars  #
     ################
