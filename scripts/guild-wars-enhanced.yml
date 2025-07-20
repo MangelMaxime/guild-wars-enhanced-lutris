@@ -7,7 +7,7 @@ runner: wine
 script:
   game:
     exe: $GAMEDIR/drive_c/Injectory/injectory.x86.exe
-    args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:/gMod/gMod.dll" -i "C:\Users\mmangel\Documents\GWToolboxpp\GWToolboxdll.dll"
+    args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:/gMod/gMod.dll" -i "C:\Users\$USER\Documents\GWToolboxpp\GWToolboxdll.dll"
     name: Guild Wars (Full Enhanced)
     prefix: $GAMEDIR
     launch_configs:
@@ -20,7 +20,7 @@ script:
         prefix: $GAMEDIR
       - exe: $GAMEDIR/drive_c/Injectory/injectory.x86.exe
         name: Guild Wars (GWToolbox only)
-        args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:\Users\mmangel\Documents\GWToolboxpp\GWToolboxdll.dll"
+        args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:\Users\$USER\Documents\GWToolboxpp\GWToolboxdll.dll"
         prefix: $GAMEDIR
       - exe: $GAMEDIR/drive_c/GWToolbox/GWToolbox.exe
         name: Update GWToolbox
