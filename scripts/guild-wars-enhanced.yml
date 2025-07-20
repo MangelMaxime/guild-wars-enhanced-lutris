@@ -33,7 +33,7 @@ script:
     - client: http://cloudfront.guildwars2.com/client/GwSetup.exe
     - gwtoolbox: https://github.com/gwdevhub/GWToolboxpp/releases/download/7.8_Exe/GWToolbox.exe
     - injectory: https://github.com/blole/injectory/releases/download/6.1.0/injectory.x86.exe
-    - gmod: https://github.com/gwdevhub/gMod/releases/download/v1.7.0.2/gMod.dll
+    - gmod: https://github.com/gwdevhub/gMod/releases/download/v1.7.0.3/gMod.dll
     # Original file from https://www.guildwarslegacy.com/ChatFilter.ini takes 5-10sec to download
     # so we use a mirror instead
     - chatfilter: https://raw.githubusercontent.com/kevinpetit/legacy-chatfilter/master/ChatFilter.ini
@@ -109,7 +109,11 @@ script:
     - write_file:
         description: Creating modlist.txt for gMod
         file: $GAMEDIR/drive_c/gMod/modlist.txt
-        content: 'C:\gMod\Borderless_Cartography_Made_Easy_2015_1.3.tpf'
+        content: |
+          # Remove the # to enable a mod
+
+          C:\gMod\Borderless_Cartography_Made_Easy_2015_1.3.tpf
+          #C:\gMod\Minimalus_UI_v2.1.tpf
         # We don't enable Minimalus UI by default because it can be intrusive
         # and some users may prefer to use the original UI
 

@@ -70,7 +70,7 @@ If you want to load the `Minimalus_UI_v2.1.tpf`, you can do so by following thes
 
 2. Navigate to `drive_c/gMod`
 3. Open `modlist.txt` in a text editor
-4. Add `C:\gMod\Minimalus_UI_v2.1.tpf` to the file
+4. Remove `#` from `#C:\gMod\Minimalus_UI_v2.1.tpf` line
 5. Save the file
 6. You can now launch the game with one of the launchers that enables gMod
 
