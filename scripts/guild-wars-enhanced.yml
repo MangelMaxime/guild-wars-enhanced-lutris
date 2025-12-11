@@ -5,6 +5,9 @@ slug: guild-wars-enhanced
 runner: wine
 
 script:
+  wine:
+    # Default wine version is not working for me (stuck at Loading 0 files remaining)
+    version: wine-10.16-staging-amd64-wow64
   game:
     exe: $GAMEDIR/drive_c/Injectory/injectory.x86.exe
     args: -l "C:/Program Files (x86)/Guild Wars/Gw.exe" -i "C:/gMod/gMod.dll" -i "C:\Users\$USER\Documents\GWToolboxpp\GWToolboxdll.dll"
